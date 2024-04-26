@@ -93,6 +93,7 @@
     dina-font
     nerdfonts #🤓
     jetbrains-mono
+    meslo-lgs-nf
 
     #shell and common tools
     fish
@@ -195,7 +196,7 @@
   programs.newsboat = {
     enable = true;
     browser = "firefox";
-    #store rss feeds in a seperate file beacuse it's a lot
+    #store rss feeds in a seperate file beacuse it's *a lot*
     urls = import ./rss.nix;
   };
 
@@ -213,6 +214,8 @@
     };
   };
 
+  programs.fish = import ./fish.nix {inherit pkgs;};
+
   fonts.fontconfig.enable = true;
   # nixpkgs.config.allowUnfree = true;
 
@@ -228,8 +231,8 @@
 
   #Window Manager settings
   programs.niri = {
-    settings = import ./niri.nix {inherit config;};
     package = pkgs.niri-unstable;
+    settings = import ./niri.nix {inherit config;};
   };
 
   programs.alacritty = {

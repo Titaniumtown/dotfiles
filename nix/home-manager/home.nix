@@ -4,8 +4,6 @@
   inputs,
   ...
 }: {
-  nixpkgs.overlays = [inputs.niri.overlays.niri];
-
   home.username = "primary";
   home.homeDirectory = "/home/primary";
 
@@ -37,7 +35,7 @@
     cargo
     rust-analyzer
 
-    #localllm inference
+    #locallwomenlm inference
     gpt4all
 
     #video and audio downloading
@@ -64,15 +62,6 @@
     #java lsp language server
     jdt-language-server
 
-    #icon theme :3
-    tela-circle-icon-theme
-
-    #apple cursors
-    apple-cursor
-
-    #libadwaita theme for gtk3 applications
-    adw-gtk3
-
     #provides volumectl
     avizo
 
@@ -93,10 +82,8 @@
     meslo-lgs-nf
 
     #shell and common tools
-    fish
     nix-update
     neofetch
-    git
     htop
     bottom
 
@@ -127,9 +114,6 @@
 
     #for ebook reading
     foliate
-
-    #notif daemon
-    dunst
 
     #rssfeed
     newsboat
@@ -187,6 +171,7 @@
   #notification daemon
   services.dunst = {
     enable = true;
+    package = pkgs.dunst;
   };
 
   #feed reader
@@ -194,11 +179,12 @@
     enable = true;
     browser = "firefox";
     #store rss feeds in a seperate file beacuse it's *a lot*
-    urls = import ./rss.nix;
+    urls = import ./progs/rss.nix;
   };
 
   programs.git = {
     enable = true;
+    package = pkgs.git;
     userName = "Simon Gardling";
     userEmail = "titaniumtown@proton.me";
     delta = {
@@ -211,7 +197,7 @@
     };
   };
 
-  programs.fish = import ./fish.nix {inherit pkgs;};
+  programs.fish = import ./progs/fish.nix {inherit pkgs;};
 
   programs.rofi = {
     enable = true;
@@ -239,13 +225,13 @@
 
   #Window Manager settings
   programs.niri = {
-    package = pkgs.niri-unstable;
-    settings = import ./niri.nix {inherit config;};
+    package = pkgs.niri;
+    settings = import ./progs/niri.nix {inherit config;};
   };
 
   programs.alacritty = {
     enable = true;
-    settings = import ./alacritty.nix;
+    settings = import ./progs/alacritty.nix;
   };
 
   # make gtk3 applications look like libadwaita applications!

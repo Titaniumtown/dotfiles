@@ -73,9 +73,6 @@
     #libadwaita theme for gtk3 applications
     adw-gtk3
 
-    #for application launcher
-    rofi-wayland
-
     #provides volumectl
     avizo
 
@@ -215,6 +212,17 @@
   };
 
   programs.fish = import ./fish.nix {inherit pkgs;};
+
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    theme = "solarized";
+    font = "hack 15";
+    extraConfig = {
+      modi = "window,drun,ssh,combi";
+      combi-modi = "window,drun,ssh";
+    };
+  };
 
   fonts.fontconfig.enable = true;
   # nixpkgs.config.allowUnfree = true;

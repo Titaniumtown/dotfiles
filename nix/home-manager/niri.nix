@@ -12,7 +12,7 @@
 
   binds = with config.lib.niri.actions; {
     #application launcher
-    "Mod+Space".action = spawn ["rofi" "-combi-modi" "window,drun,ssh" "-theme" "solarized" "-font" "hack" "10" "-show" "combi"];
+    "Mod+Space".action = spawn ["rofi" "-show" "combi"];
 
     #open a terminal
     "Mod+T".action = spawn "alacritty";

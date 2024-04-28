@@ -6,7 +6,11 @@ The `nix` folder contains two sub directories, `etcnixos` and `home-manager`. Th
 
 ## What do I use?
 Browser: Firefox 🦊
+
 Text Editor: [helix](https://github.com/helix-editor/helix)
+
 Terminal: [alacritty](https://github.com/alacritty/alacritty)
-Shell: [fish](https://fishshell.com/)
+
+Shell: [fish](https://fishshell.com/) with the [pure](https://github.com/pure-fish/pure) prompt
+
 There is more that I'm using, but those are the main ones! Read my configs to get more into the specifics.

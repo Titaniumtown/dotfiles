@@ -8,7 +8,7 @@ enable = true;
         height = 45;
         modules-left = [];
         modules-center = ["clock"];
-        modules-right = ["tray" "backlight" "pulseaudio" "battery" "custom/power"];
+        modules-right = ["tray" "backlight" "pulseaudio" "battery"];
 
         tray = {spacing = 16;};
 
@@ -68,7 +68,7 @@ enable = true;
       .modules-center, .modules-right {
         border-radius: 15px;
         background-color: #040409;
-        padding: 2px 6px;
+        padding: 0px 0px;
       }
 
       window#waybar.hidden {
@@ -124,12 +124,14 @@ enable = true;
         padding: 15px;
         background-color: #101012;
         color: #ECECEC;
+        opacity: 0.8;
       }
 
       tooltip label {
         padding: 5px;
         background-color: #101012;
         color: #ECECEC;
+        opacity: 0.8;
       }
     '';
 }

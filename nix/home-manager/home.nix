@@ -18,7 +18,6 @@
     gnome.nautilus #file manager
     gnome.eog #image viewer
 
-    alacritty
     vorta
 
     helix #rust-written text editor :3
@@ -125,7 +124,7 @@
     alejandra
 
     #small nicities
-    wl-clipboard #clipboard utils in wayland
+    wl-clipboard #clipboard utils in wayland (wl-copy and wl-paste)
     libnotify #notifications library
     xdg-utils #xdg utils
 
@@ -150,9 +149,6 @@
     #audio mixer
     pavucontrol
 
-    #neofetch, but written in C (wish it was in rust but oh well)
-    fastfetch
-
     python3
 
     ungoogled-chromium
@@ -160,6 +156,7 @@
     #sets background, also works on niri :3
     swaybg
   ];
+  services.blueman-applet.enable = true;
 
   #dark mode
   dconf.settings = {
@@ -210,6 +207,8 @@
     };
   };
 
+  programs.waybar = import ./progs/waybar.nix;
+
   fonts.fontconfig.enable = true;
   # nixpkgs.config.allowUnfree = true;
 
@@ -231,6 +230,7 @@
 
   programs.alacritty = {
     enable = true;
+    package = pkgs.alacritty;
     settings = import ./progs/alacritty.nix;
   };
 

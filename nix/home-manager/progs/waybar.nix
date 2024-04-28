@@ -10,15 +10,6 @@ enable = true;
         modules-center = ["clock"];
         modules-right = ["tray" "backlight" "pulseaudio" "battery" "custom/power"];
 
-        # "wlr/taskbar" = {
-        #   format = "{icon}";
-        #   "on-click" = "activate";
-        #   "on-click-right" = "fullscreen";
-
-        #   "icon-size" = 25;
-        #   "tooltip-format" = "{title}";
-        # };
-
         tray = {spacing = 16;};
 
         clock = {
@@ -53,7 +44,6 @@ enable = true;
             warning = 20;
             critical = 10;
           };
-          # tooltip = false;
         };
       };
     };

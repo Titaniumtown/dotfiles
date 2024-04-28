@@ -8,7 +8,6 @@
 
   window-rules = [
     {draw-border-with-background = false;}
-    # {geometry-corner-radius = 12;}
   ];
 
   binds = with config.lib.niri.actions; {

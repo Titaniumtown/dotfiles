@@ -20,7 +20,7 @@
 
     vorta
 
-    helix #rust-written text editor :3
+    helix
     hexyl #hex viewer
 
     #productivity stuff
@@ -63,9 +63,6 @@
 
     #provides volumectl
     avizo
-
-    #for bar
-    waybar
 
     #fonts
     noto-fonts

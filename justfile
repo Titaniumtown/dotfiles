@@ -1,3 +1,5 @@
+update_all: system_update home_update sync_configs
+
 system_update:
     doas alejandra -q /etc/nixos/*.nix
     doas nix flake update /etc/nixos

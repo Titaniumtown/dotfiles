@@ -148,10 +148,10 @@
 
     python3
 
-    ungoogled-chromium
-
     #sets background, also works on niri :3
     swaybg
+
+    just
   ];
   services.blueman-applet.enable = true;
 

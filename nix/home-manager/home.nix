@@ -11,14 +11,13 @@
 
   home.packages = with pkgs; [
     firefox
-    gimp
 
     gnome.gnome-calculator #calculator
     gnome-text-editor #text editor
     gnome.nautilus #file manager
     gnome.eog #image viewer
 
-    vorta
+    # vorta
 
     helix
     hexyl #hex viewer
@@ -229,6 +228,12 @@
     enable = true;
     package = pkgs.alacritty;
     settings = import ./progs/alacritty.nix;
+  };
+
+  programs.borgmatic = {
+    enable = true;
+    package = pkgs.borgmatic;
+    backups = import ./progs/borg.nix;
   };
 
   # make gtk3 applications look like libadwaita applications!

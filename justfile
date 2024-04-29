@@ -13,6 +13,6 @@ home_update:
     home-manager switch
 
 sync_configs:
-    rsync -av --delete /etc/nixos/ ~/dotfiles/nix/etcnixos/
-    rsync -av --delete ~/.config/home-manager/ ~/dotfiles/nix/home-manager/
-    cp -v ~/justfile ~/dotfiles/
+    rsync -a --delete /etc/nixos/ ~/dotfiles/nix/etcnixos/
+    rsync -a --delete ~/.config/home-manager/ ~/dotfiles/nix/home-manager/
+    cp ~/justfile ~/dotfiles/

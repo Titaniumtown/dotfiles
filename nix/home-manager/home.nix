@@ -180,9 +180,7 @@
     package = pkgs.git;
     userName = "Simon Gardling";
     userEmail = "titaniumtown@proton.me";
-    delta = {
-      enable = true;
-    };
+    delta.enable = true;
     extraConfig = {
       init = {
         defaultBranch = "main";
@@ -235,6 +233,8 @@
     package = pkgs.borgmatic;
     backups = import ./progs/borg.nix;
   };
+
+  programs.helix = import ./progs/helix.nix {inherit pkgs;};
 
   # make gtk3 applications look like libadwaita applications!
   gtk = {

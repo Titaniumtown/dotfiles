@@ -17,8 +17,6 @@
     gnome.nautilus #file manager
     gnome.eog #image viewer
 
-    # vorta
-
     helix
     hexyl #hex viewer
 
@@ -33,7 +31,7 @@
     cargo
     rust-analyzer
 
-    #locallwomenlm inference
+    #locallm inference
     gpt4all
 
     #video and audio downloading
@@ -130,8 +128,6 @@
     #window manager
     niri
 
-    # zed-editor
-
     #manage bluetooth devices
     blueman
 
@@ -152,6 +148,7 @@
 
     just
   ];
+
   services.blueman-applet.enable = true;
 
   #dark mode

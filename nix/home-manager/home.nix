@@ -245,7 +245,7 @@
     };
     iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
-      name = "Breeze";
+      name = "Adwaita";
     };
   };
 

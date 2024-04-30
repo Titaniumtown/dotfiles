@@ -12,13 +12,12 @@
           normal = "block";
           select = "underline";
         };
+
         file-picker = {
           hidden = false;
         };
 
-        soft-wrap = {
-          enable = true;
-        };
+        soft-wrap.enable = true;
       };
     };
 

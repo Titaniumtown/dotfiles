@@ -25,7 +25,7 @@
       language = [
         {
           name = "rust";
-          auto-format = false;
+          auto-format = true;
         }
       ];
     };

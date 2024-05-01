@@ -59,6 +59,12 @@
     };
 
     enableContainers = false;
+
+    #use zstd level 22 for the initrd
+    initrd = {
+      compressor = "zstd";
+      compressorArgs = ["--ultra" "-22"];
+    };
   };
 
   #fwupd for updating firmware

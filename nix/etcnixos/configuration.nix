@@ -67,6 +67,11 @@
     };
   };
 
+  # auto mount usb drives i think (https://unix.stackexchange.com/questions/655158/automount-removable-media-using-udev-in-nixos)
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"
+  '';
+
   #fwupd for updating firmware
   services.fwupd = {
     enable = true;

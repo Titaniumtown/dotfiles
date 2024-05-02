@@ -75,7 +75,6 @@
 
     #shell and common tools
     nix-update
-    neofetch
     htop
     bottom
 
@@ -110,8 +109,6 @@
     #rssfeed
     newsboat
     lynx
-
-    bottles
 
     #nix style checker
     alejandra

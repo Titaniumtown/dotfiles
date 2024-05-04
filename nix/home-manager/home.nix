@@ -143,6 +143,8 @@
     swaybg
 
     just
+
+    gamescope
   ];
 
   services.blueman-applet.enable = true;

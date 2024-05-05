@@ -122,7 +122,7 @@
     vscode-langservers-extracted
 
     #window manager
-    niri
+    niri-unstable
 
     #manage bluetooth devices
     blueman
@@ -212,8 +212,10 @@
   */
 
   #Window Manager settings
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
+
   programs.niri = {
-    package = pkgs.niri;
+    package = pkgs.niri-unstable;
     settings = import ./progs/niri.nix {inherit config;};
   };
 

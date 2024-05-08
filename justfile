@@ -1,7 +1,7 @@
 update_all: system_update home_update sync_configs
 
 format_home:
-    alejandra -q .config/home-manager
+    alejandra -q ~/.config/home-manager
 
 format_system:
     doas alejandra -q /etc/nixos

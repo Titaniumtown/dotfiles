@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware.nix
+    ./declarative-nm.nix
   ];
 
   #enable flakes!
@@ -102,22 +103,11 @@
 
   #Making sure mullvad works on boot
   services.mullvad-vpn.enable = true;
-  services.resolved.enable = true;
+
+  # services.resolved.enable = false;
 
   #networking
-  networking = {
-    hostName = "framework";
-    wireless = {
-      enable = true;
-      #import network creds from a seperate config (for .gitignore perchance)
-      networks = import ./wifi-creds.nix;
-
-      #allow wpa_supplicant to be changed by the user
-      userControlled = {
-        enable = true;
-      };
-    };
-  };
+  networking = import ./networking.nix;
 
   # Set your time zone.
   time.timeZone = "America/New_York";

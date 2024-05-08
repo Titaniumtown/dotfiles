@@ -100,7 +100,7 @@
     tldr #`man` but more straight-forward and simpler
     ripgrep #grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
 
-    #adds `sensor` command
+    #adds `sensors` command
     lm_sensors
 
     #for ebook reading

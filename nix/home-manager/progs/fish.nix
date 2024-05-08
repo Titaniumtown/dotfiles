@@ -18,6 +18,12 @@
     ll = "eza -l --color=always --group-directories-first";
     lt = "eza -aT --color=always --group-directories-first";
 
+    #some rust alts
+    cat = "bat";
+    du = "dust";
+    df = "duf";
+    grep = "rg";
+
     #aliases for (I think) macos commands
     pbcopy = "wl-copy";
     pbpaste = "wl-paste";

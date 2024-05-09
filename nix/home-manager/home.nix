@@ -145,6 +145,9 @@
     just
 
     gamescope
+
+    #minecraft
+    prismlauncher
   ];
 
   services.blueman-applet.enable = true;

@@ -196,6 +196,13 @@
   # Enable thermal data
   services.thermald.enable = true;
 
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+    enableSSHSupport = true;
+  };
+
   services.tlp = {
     enable = true;
     settings = {

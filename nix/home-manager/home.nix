@@ -184,6 +184,10 @@
         defaultBranch = "main";
       };
     };
+    signing = {
+      key = "9AB28AC10ECE533D";
+      signByDefault = true;
+    };
   };
 
   programs.fish = import ./progs/fish.nix {inherit pkgs;};

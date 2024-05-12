@@ -24,6 +24,9 @@
     optimise.automatic = true;
   };
 
+  #use scx_rustland scheduler
+  chaotic.scx.enable = true;
+
   #kernel options
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos-lto;

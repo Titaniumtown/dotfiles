@@ -1,11 +1,18 @@
 {
+  #use the fish shell
   shell.program = "fish";
+
+  #some programs can't handle alacritty
   env.TERM = "xterm-256color";
 
   window = {
+    #using a window manager, no decorations needed
     decorations = "none";
+
+    #semi-transparent
     opacity = 0.85;
 
+    #pading between the content of the terminal and the edge
     padding = {
       x = 10;
       y = 10;
@@ -44,6 +51,7 @@
     glyph_offset.y = 0;
   };
 
+  #color scheme
   colors = {
     primary = {
       background = "0x131621";

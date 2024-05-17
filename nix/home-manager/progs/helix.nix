@@ -14,6 +14,7 @@
         hidden = false;
       };
 
+      #wrapping!!
       soft-wrap.enable = true;
     };
   };

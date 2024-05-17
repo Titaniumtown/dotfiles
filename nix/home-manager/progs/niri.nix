@@ -2,7 +2,10 @@
   prefer-no-csd = true;
 
   spawn-at-startup = [
+    #waybar
     {command = ["waybar"];}
+
+    #swaybg works on more than just sway (sets a wallpaper)
     {command = ["swaybg" "-i" "/home/primary/.wallpaper.png"];}
   ];
 
@@ -96,12 +99,18 @@
     "Mod+Page_Up".action = focus-workspace-up;
     "Mod+U".action = focus-workspace-down;
     "Mod+I".action = focus-workspace-up;
+
+    #move a window up and down workspaces
     "Mod+Ctrl+Page_Down".action = move-column-to-workspace-down;
     "Mod+Ctrl+Page_Up".action = move-column-to-workspace-up;
+
     "Mod+Ctrl+U".action = move-column-to-workspace-down;
     "Mod+Ctrl+I".action = move-column-to-workspace-up;
+
+    #does little squeeze thing into the left or right position with another window
     "Mod+BracketLeft".action = consume-or-expel-window-left;
     "Mod+BracketRight".action = consume-or-expel-window-right;
+
     "Mod+R".action = switch-preset-column-width;
     "Mod+F".action = maximize-column;
     "Mod+Shift+F".action = fullscreen-window;

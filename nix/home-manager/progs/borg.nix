@@ -18,6 +18,7 @@
     };
 
     storage = {
+      #super secret password location (maybe I should find a way to store secrets properly)
       encryptionPasscommand = "cat /home/primary/Documents/secrets/borg_bak_pass";
     };
   };

@@ -7,17 +7,22 @@
       spacing = 0;
       height = 45;
       modules-left = [];
+      #put the clock in the center
       modules-center = ["clock"];
+
+      #modules left->right on the top right of the screen
       modules-right = ["tray" "backlight" "pulseaudio" "battery"];
 
       tray = {spacing = 16;};
 
+      #clock
       clock = {
         "tooltip-format" = "<tt>{calendar}</tt>";
         "format-alt" = "  {:%a, %d %b %Y}";
         format = "󰥔  {:%I:%M %p}";
       };
 
+      #it's **called** pulseaudio, but it's just audio in general, I'm using pipewire
       pulseaudio = {
         format = "{icon} {volume}%";
         "format-bluetooth" = "󰂰";
@@ -32,6 +37,7 @@
         "scroll-step" = 1;
       };
 
+      #this config is for my laptop, so show a battery icon and stats
       battery = {
         format = "{capacity}% {icon}";
         "format-icons" = {

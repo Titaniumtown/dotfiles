@@ -148,6 +148,8 @@
 
     #minecraft
     prismlauncher
+
+    pfetch-rs
   ];
 
   services.blueman-applet.enable = true;
@@ -173,25 +175,33 @@
     urls = import ./progs/rss.nix;
   };
 
+  #git (self explanatory)
   programs.git = {
     enable = true;
     package = pkgs.git;
     userName = "Simon Gardling";
     userEmail = "titaniumtown@proton.me";
+
+    #better way to view diffs
     delta.enable = true;
+
+    #master -> main
     extraConfig = {
       init = {
         defaultBranch = "main";
       };
     };
+    #gpg signing keys
     signing = {
       key = "9AB28AC10ECE533D";
       signByDefault = true;
     };
   };
 
+  #fish shell!
   programs.fish = import ./progs/fish.nix {inherit pkgs;};
 
+  #rofi for application launcher
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -203,9 +213,12 @@
     };
   };
 
+  #waybar for status bar
   programs.waybar = import ./progs/waybar.nix;
 
+  #allow extra fonts to be detected by fontconfig
   fonts.fontconfig.enable = true;
+
   # nixpkgs.config.allowUnfree = true;
 
   #for trezor stuff
@@ -218,31 +231,36 @@
   trezorctl
   */
 
-  #Window Manager settings
+  #use niri unstable overlay
   nixpkgs.overlays = [inputs.niri.overlays.niri];
 
+  #window manager
   programs.niri = {
     package = pkgs.niri-unstable;
     settings = import ./progs/niri.nix {inherit config;};
   };
 
+  #Terminal emulator
   programs.alacritty = {
     enable = true;
     package = pkgs.alacritty;
     settings = import ./progs/alacritty.nix;
   };
 
+  #backup utility
   programs.borgmatic = {
     enable = true;
     package = pkgs.borgmatic;
     backups = import ./progs/borg.nix;
   };
 
+  #text editor
   programs.helix = import ./progs/helix.nix {inherit pkgs;};
 
-  # make gtk3 applications look like libadwaita applications!
+  #gtk application theming
   gtk = {
     enable = true;
+    # make gtk3 applications look like libadwaita applications!
     theme = {
       package = pkgs.adw-gtk3;
       name = "adw-gtk3-dark";
@@ -253,6 +271,7 @@
     };
   };
 
+  #qt application theming
   qt = {
     enable = true;
     style = {

@@ -150,6 +150,8 @@
     prismlauncher
 
     pfetch-rs
+
+    powerstat
   ];
 
   services.blueman-applet.enable = true;

@@ -9,150 +9,171 @@
 
   home.stateVersion = "23.11";
 
-  home.packages = with pkgs; [
-    firefox
+  nixpkgs.overlays = [inputs.nur.overlay inputs.niri.overlays.niri];
 
-    gnome.gnome-calculator #calculator
-    gnome-text-editor #text editor
-    gnome.nautilus #file manager
-    gnome.eog #image viewer
+  home.packages = with pkgs;
+    [
+      firefox
 
-    helix
-    hexyl #hex viewer
+      gnome.gnome-calculator #calculator
+      gnome-text-editor #text editor
+      gnome.nautilus #file manager
+      gnome.eog #image viewer
 
-    #productivity stuff
-    libreoffice
-    hunspell #auto correct
-    hunspellDicts.en_US
+      helix
+      hexyl #hex viewer
 
-    #rust stuff
-    rustc
-    rustfmt
-    cargo
-    rust-analyzer
+      #productivity stuff
+      libreoffice
+      hunspell #auto correct
+      hunspellDicts.en_US
 
-    #locallm inference
-    gpt4all
+      #rust stuff
+      rustc
+      rustfmt
+      cargo
+      rust-analyzer
 
-    #video and audio downloading
-    parabolic
+      #locallm inference
+      gpt4all
 
-    #soulseek client
-    nicotine-plus
+      #video and audio downloading
+      parabolic
 
-    #for website generation
-    hugo
+      #soulseek client
+      nicotine-plus
 
-    #dark web browsing deep web browsing
-    tor-browser
+      #for website generation
+      hugo
 
-    #audio editing
-    audacity
+      #dark web browsing deep web browsing
+      tor-browser
 
-    #google java format my beloved
-    google-java-format
+      #audio editing
+      audacity
 
-    #java 17 because last time we used a newer version, stuff for school broke
-    openjdk17
+      #google java format my beloved
+      google-java-format
 
-    #java lsp language server
-    jdt-language-server
+      #java 17 because last time we used a newer version, stuff for school broke
+      openjdk17
 
-    #provides volumectl
-    avizo
+      #java lsp language server
+      jdt-language-server
 
-    #fonts
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    nerdfonts #🤓
-    jetbrains-mono
-    meslo-lgs-nf
+      #provides volumectl
+      avizo
 
-    #shell and common tools
-    nix-update
-    htop
-    bottom
+      #fonts
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      nerdfonts #🤓
+      jetbrains-mono
+      meslo-lgs-nf
 
-    #misc cli utils
-    wget
-    unzip
+      #shell and common tools
+      nix-update
+      htop
+      bottom
 
-    #compiling stuff
-    mold
+      #misc cli utils
+      wget
+      unzip
 
-    #used for measuring compression ratios
-    compsize
+      #compiling stuff
+      mold
 
-    hyperfine #for benchmaking stuff
+      #used for measuring compression ratios
+      compsize
 
-    #replacements for common posix tools
-    eza #ls replacement
-    bat #pretty `cat` clone
-    delta #viewer for `git` and `diff` output
-    dust #pretty `du` version
-    duf #better `df` clone
-    gping #`ping`... but with a graph!!
-    tldr #`man` but more straight-forward and simpler
-    ripgrep #grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
+      hyperfine #for benchmaking stuff
 
-    #adds `sensors` command
-    lm_sensors
+      #replacements for common posix tools
+      eza #ls replacement
+      bat #pretty `cat` clone
+      delta #viewer for `git` and `diff` output
+      dust #pretty `du` version
+      duf #better `df` clone
+      gping #`ping`... but with a graph!!
+      tldr #`man` but more straight-forward and simpler
+      ripgrep #grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
 
-    #for ebook reading
-    foliate
+      #adds `sensors` command
+      lm_sensors
 
-    #rssfeed
-    newsboat
-    lynx
+      #for ebook reading
+      foliate
 
-    #nix style checker
-    alejandra
+      #rssfeed
+      newsboat
+      lynx
 
-    #small nicities
-    wl-clipboard #clipboard utils in wayland (wl-copy and wl-paste)
-    libnotify #notifications library
-    xdg-utils #xdg utils
+      #nix style checker
+      alejandra
 
-    #HTML/CSS/JSON/ESLint language servers
-    vscode-langservers-extracted
+      #small nicities
+      wl-clipboard #clipboard utils in wayland (wl-copy and wl-paste)
+      libnotify #notifications library
+      xdg-utils #xdg utils
 
-    #window manager
-    niri-unstable
+      #HTML/CSS/JSON/ESLint language servers
+      vscode-langservers-extracted
 
-    #manage bluetooth devices
-    blueman
+      #window manager
+      niri-unstable
 
-    intel-gpu-tools
-    killall
+      #manage bluetooth devices
+      blueman
 
-    gcc
-    gnumake
-    gparted
+      intel-gpu-tools
+      killall
 
-    #audio mixer
-    pavucontrol
+      gcc
+      gnumake
+      gparted
 
-    python3
+      #audio mixer
+      pavucontrol
 
-    #sets background, also works on niri :3
-    swaybg
+      #sets background, also works on niri :3
+      swaybg
 
-    just
+      just
 
-    gamescope
+      gamescope
 
-    #minecraft
-    prismlauncher
+      #minecraft
+      prismlauncher
 
-    pfetch-rs
+      pfetch-rs
 
-    powerstat
-  ];
+      powerstat
+
+      mumble
+
+      chromium
+    ]
+    ++ [
+      (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.selenium
+        python-pkgs.selenium-wire
+        python-pkgs.requests
+        python-pkgs.pandas
+        python-pkgs.numpy
+        python-pkgs.setuptools
+        python-pkgs.psutil
+        python-pkgs.blinker
+        python-pkgs.apprise
+        python-pkgs.pyyaml
+        python-pkgs.websockets
+        nur.repos.xddxdd.undetected-chromedriver
+      ]))
+    ];
 
   services.blueman-applet.enable = true;
 
@@ -193,6 +214,7 @@
         defaultBranch = "main";
       };
     };
+
     #gpg signing keys
     signing = {
       key = "9AB28AC10ECE533D";
@@ -221,7 +243,7 @@
   #allow extra fonts to be detected by fontconfig
   fonts.fontconfig.enable = true;
 
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   #for trezor stuff
   /*
@@ -232,9 +254,6 @@
   monero-cli
   trezorctl
   */
-
-  #use niri unstable overlay
-  nixpkgs.overlays = [inputs.niri.overlays.niri];
 
   #window manager
   programs.niri = {

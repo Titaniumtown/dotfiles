@@ -9,6 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
+    nur.url = "github:nix-community/NUR";
   };
 
   nixConfig = {
@@ -30,10 +31,12 @@
     chaotic,
     home-manager,
     niri,
+    nur,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     username = "primary";
+    hostname = "mreow";
   in {
     homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
@@ -47,21 +50,6 @@
             inherit username;
             homeDirectory = "/home/${username}";
           };
-        }
-      ];
-    };
-
-    nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-        chaotic.nixosModules.default # chaotic nixos
-
-        #Don't annoy me about permitting stuff
-        {
-          nix.settings.trusted-users = ["${username}"];
         }
       ];
     };

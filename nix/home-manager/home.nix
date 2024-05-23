@@ -9,171 +9,190 @@
 
   home.stateVersion = "23.11";
 
-  nixpkgs.overlays = [inputs.nur.overlay inputs.niri.overlays.niri];
+  nixpkgs.overlays = [inputs.nur.overlay];
 
-  home.packages = with pkgs;
-    [
-      firefox
+  home.packages = with pkgs; [
+    firefox
 
-      gnome.gnome-calculator #calculator
-      gnome-text-editor #text editor
-      gnome.nautilus #file manager
-      gnome.eog #image viewer
+    gnome.gnome-calculator #calculator
+    gnome-text-editor #text editor
+    gnome.nautilus #file manager
+    gnome.eog #image viewer
 
-      helix
-      hexyl #hex viewer
+    helix
+    hexyl #hex viewer
 
-      #productivity stuff
-      libreoffice
-      hunspell #auto correct
-      hunspellDicts.en_US
+    #productivity stuff
+    libreoffice
+    hunspell #auto correct
+    hunspellDicts.en_US
 
-      #rust stuff
-      rustc
-      rustfmt
-      cargo
-      rust-analyzer
+    #rust stuff
+    rustc
+    rustfmt
+    cargo
+    rust-analyzer
 
-      #locallm inference
-      gpt4all
+    #locallm inference
+    gpt4all
 
-      #video and audio downloading
-      parabolic
+    #video and audio downloading
+    parabolic
 
-      #soulseek client
-      nicotine-plus
+    #soulseek client
+    nicotine-plus
 
-      #for website generation
-      hugo
+    #for website generation
+    hugo
 
-      #dark web browsing deep web browsing
-      tor-browser
+    #dark web browsing deep web browsing
+    tor-browser
 
-      #audio editing
-      audacity
+    #audio editing
+    audacity
 
-      #google java format my beloved
-      google-java-format
+    #google java format my beloved
+    google-java-format
 
-      #java 17 because last time we used a newer version, stuff for school broke
-      openjdk17
+    #java 17 because last time we used a newer version, stuff for school broke
+    openjdk17
 
-      #java lsp language server
-      jdt-language-server
+    #java lsp language server
+    jdt-language-server
 
-      #provides volumectl
-      avizo
+    #provides volumectl
+    avizo
 
-      #fonts
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      liberation_ttf
-      fira-code
-      fira-code-symbols
-      mplus-outline-fonts.githubRelease
-      nerdfonts #🤓
-      jetbrains-mono
-      meslo-lgs-nf
+    #fonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    nerdfonts #🤓
+    jetbrains-mono
+    meslo-lgs-nf
 
-      #shell and common tools
-      nix-update
-      htop
-      bottom
+    #shell and common tools
+    nix-update
+    htop
+    bottom
 
-      #misc cli utils
-      wget
-      unzip
+    #misc cli utils
+    wget
+    unzip
 
-      #compiling stuff
-      mold
+    #compiling stuff
+    mold
 
-      #used for measuring compression ratios
-      compsize
+    #used for measuring compression ratios
+    compsize
 
-      hyperfine #for benchmaking stuff
+    hyperfine #for benchmaking stuff
 
-      #replacements for common posix tools
-      eza #ls replacement
-      bat #pretty `cat` clone
-      delta #viewer for `git` and `diff` output
-      dust #pretty `du` version
-      duf #better `df` clone
-      gping #`ping`... but with a graph!!
-      tldr #`man` but more straight-forward and simpler
-      ripgrep #grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
+    #replacements for common posix tools
+    eza #ls replacement
+    bat #pretty `cat` clone
+    delta #viewer for `git` and `diff` output
+    dust #pretty `du` version
+    duf #better `df` clone
+    gping #`ping`... but with a graph!!
+    tldr #`man` but more straight-forward and simpler
+    ripgrep #grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
 
-      #adds `sensors` command
-      lm_sensors
+    #adds `sensors` command
+    lm_sensors
 
-      #for ebook reading
-      foliate
+    #for ebook reading
+    foliate
 
-      #rssfeed
-      newsboat
-      lynx
+    #rssfeed
+    newsboat
+    lynx
 
-      #nix style checker
-      alejandra
+    #nix style checker
+    alejandra
 
-      #small nicities
-      wl-clipboard #clipboard utils in wayland (wl-copy and wl-paste)
-      libnotify #notifications library
-      xdg-utils #xdg utils
+    #small nicities
+    wl-clipboard #clipboard utils in wayland (wl-copy and wl-paste)
+    libnotify #notifications library
+    xdg-utils #xdg utils
 
-      #HTML/CSS/JSON/ESLint language servers
-      vscode-langservers-extracted
+    #HTML/CSS/JSON/ESLint language servers
+    vscode-langservers-extracted
 
-      #window manager
-      niri-unstable
+    #window manager
+    niri
 
-      #manage bluetooth devices
-      blueman
+    #manage bluetooth devices
+    blueman
 
-      intel-gpu-tools
-      killall
+    intel-gpu-tools
+    killall
 
-      gcc
-      gnumake
-      gparted
+    gcc
+    gnumake
+    gparted
 
-      #audio mixer
-      pavucontrol
+    #audio mixer
+    pavucontrol
 
-      #sets background, also works on niri :3
-      swaybg
+    #sets background, also works on niri :3
+    swaybg
 
-      just
+    just
 
-      gamescope
+    gamescope
 
-      #minecraft
-      prismlauncher
+    #minecraft
+    prismlauncher
 
-      pfetch-rs
+    pfetch-rs
 
-      powerstat
+    powerstat
 
-      mumble
+    mumble
 
-      chromium
-    ]
-    ++ [
-      (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.selenium
-        python-pkgs.selenium-wire
-        python-pkgs.requests
-        python-pkgs.pandas
-        python-pkgs.numpy
-        python-pkgs.setuptools
-        python-pkgs.psutil
-        python-pkgs.blinker
-        python-pkgs.apprise
-        python-pkgs.pyyaml
-        python-pkgs.websockets
-        nur.repos.xddxdd.undetected-chromedriver
-      ]))
-    ];
+    # chromium
+
+    #I want to move to this in the future
+    # librewolf
+  ];
+  /*
+  ++ [
+    (pkgs.python3.withPackages (python-pkgs: [
+      # python-pkgs.selenium
+      # python-pkgs.selenium-wire
+      python-pkgs.requests
+      python-pkgs.pandas
+      python-pkgs.numpy
+      python-pkgs.setuptools
+      python-pkgs.psutil
+      python-pkgs.blinker
+      python-pkgs.apprise
+      python-pkgs.pyyaml
+      python-pkgs.websockets
+      nur.repos.milahu.python3Packages.selenium-driverless
+      nur.repos.milahu.python3Packages.cdp-socket
+    ]))
+  ];
+  */
+  /*
+    programs.librewolf = {
+    enable = true;
+    # Enable WebGL, cookies and history
+    settings = {
+      "webgl.disabled" = false;
+      "privacy.resistFingerprinting" = false;
+      "privacy.clearOnShutdown.history" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+      "network.cookie.lifetimePolicy" = 0;
+      "identity.fxaccounts.enabled" = true;
+    };
+  };
+  */
 
   services.blueman-applet.enable = true;
 
@@ -257,7 +276,7 @@
 
   #window manager
   programs.niri = {
-    package = pkgs.niri-unstable;
+    package = pkgs.niri;
     settings = import ./progs/niri.nix {inherit config;};
   };
 

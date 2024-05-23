@@ -103,7 +103,6 @@
     interval = "weekly";
     fileSystems = ["/"];
   };
-
   #Making sure mullvad works on boot
   services.mullvad-vpn.enable = true;
 
@@ -130,8 +129,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  services.xserver.excludePackages = with pkgs; [xterm];
 
   #wayland with electron/chromium applications
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -223,6 +220,20 @@
     };
   };
 
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   #System packages
   environment.systemPackages = with pkgs; [
     libva-utils
@@ -232,6 +243,7 @@
     home-manager
 
     # linuxPackages_cachyos-lto.perf
+    distrobox
   ];
 
   system.stateVersion = "24.05";

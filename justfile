@@ -11,8 +11,7 @@ system_update:
     doas nixos-rebuild boot --upgrade-all --impure
 
 home_update:
-    nix flake update .config/home-manager
-    rm -rf ~/.gtkrc-2.0 || true
+    nix flake update ~/.config/home-manager
     home-manager switch
 
 sync_configs: format_home format_system

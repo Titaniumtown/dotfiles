@@ -1,7 +1,7 @@
 {
   home = {
     location = {
-      sourceDirectories = ["/etc/nixos" "/home/primary/.mozilla" "/home/primary/dotfiles" "/home/primary/.config" "/home/primary/Documents" "/home/primary/projects" "/home/primary/Pictures" "/home/primary/school" "/home/primary/.wallpaper.png" "/home/primary/.ssh" "/home/primary/justfile" "/home/primary/.local/share/fish" "/home/primary/.gnupg"];
+      sourceDirectories = ["/etc/nixos" "/home/primary/.librewolf" "/home/primary/dotfiles" "/home/primary/.config" "/home/primary/Documents" "/home/primary/projects" "/home/primary/Pictures" "/home/primary/school" "/home/primary/.wallpaper.png" "/home/primary/.ssh" "/home/primary/justfile" "/home/primary/.local/share/fish" "/home/primary/.gnupg"];
       excludeHomeManagerSymlinks = true;
 
       repositories = [

@@ -10,7 +10,7 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    firefox
+    librewolf
 
     gnome.gnome-calculator #calculator
     gnome-text-editor #text editor
@@ -154,9 +154,6 @@
     mumble
 
     # chromium
-
-    #I want to move to this in the future
-    # librewolf
   ];
   /*
   ++ [
@@ -177,20 +174,19 @@
     ]))
   ];
   */
-  /*
-    programs.librewolf = {
+
+  programs.librewolf = {
     enable = true;
-    # Enable WebGL, cookies and history
     settings = {
       "webgl.disabled" = false;
       "privacy.resistFingerprinting" = false;
       "privacy.clearOnShutdown.history" = false;
       "privacy.clearOnShutdown.cookies" = false;
       "network.cookie.lifetimePolicy" = 0;
+      "general.useragent.compatMode.firefox" = true;
       "identity.fxaccounts.enabled" = true;
     };
   };
-  */
 
   services.blueman-applet.enable = true;
 

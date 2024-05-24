@@ -9,8 +9,6 @@
 
   home.stateVersion = "23.11";
 
-  nixpkgs.overlays = [inputs.nur.overlay];
-
   home.packages = with pkgs; [
     firefox
 

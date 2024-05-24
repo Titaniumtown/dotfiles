@@ -9,7 +9,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-    nur.url = "github:nix-community/NUR";
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   nixConfig = {
@@ -31,7 +32,7 @@
     chaotic,
     home-manager,
     niri,
-    nur,
+    agenix,
     ...
   } @ inputs: let
     system = "x86_64-linux";

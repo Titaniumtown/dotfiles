@@ -185,6 +185,8 @@
       "network.cookie.lifetimePolicy" = 0;
       "general.useragent.compatMode.firefox" = true;
       "identity.fxaccounts.enabled" = true;
+      "services.sync.prefs.sync.privacy.clearOnShutdown.cookies" = false;
+      "services.sync.prefs.sync.privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
     };
   };
 

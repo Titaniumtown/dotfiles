@@ -7,7 +7,7 @@
   home.username = "primary";
   home.homeDirectory = "/home/primary";
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
     librewolf
@@ -152,6 +152,7 @@
     powerstat
 
     mumble
+    # inputs.agenix.packages.${system}.default
 
     # chromium
   ];

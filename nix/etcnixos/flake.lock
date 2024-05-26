@@ -55,11 +55,11 @@
         "yafas": "yafas"
       },
       "locked": {
-        "lastModified": 1716563212,
-        "narHash": "sha256-m4M2EH9PcFGDpJRgK0u0FDadOBM8G02/p7F77fiEdNo=",
+        "lastModified": 1716750091,
+        "narHash": "sha256-E5WktBEPQPk49hhgI7ttpHKYjjWO9WqtRDmZ/i6a1io=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "f3685d816317958caf2bce128f80d02fee65b163",
+        "rev": "651cfaba624e7bf0876fbd528f3fa8f1b0c0c614",
         "type": "github"
       },
       "original": {
@@ -123,6 +123,7 @@
           "chaotic",
           "flake-utils"
         ],
+        "liburing": "liburing",
         "nix-filter": [
           "chaotic",
           "nix-filter"
@@ -134,11 +135,11 @@
         "rocksdb": "rocksdb"
       },
       "locked": {
-        "lastModified": 1716442236,
-        "narHash": "sha256-6iHSjtGDvgfAOamDXuKn7saTTz21h8Zqi57DEIjtSr4=",
+        "lastModified": 1716690523,
+        "narHash": "sha256-II8U33DM1NZmUDmAhi941KeMErUTcFtLtw5RKIEHTtc=",
         "owner": "girlbossceo",
         "repo": "conduwuit",
-        "rev": "eb8dd9cb44f2cb284d92da0e07db805d0f19ed37",
+        "rev": "30beb2023076e073d666f620899f94443577ed4c",
         "type": "github"
       },
       "original": {
@@ -245,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716457508,
-        "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
+        "lastModified": 1716711219,
+        "narHash": "sha256-TnZETiQPXbyT5mdCHMOyrJnx2+BwroMBRrguciz1vEo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
+        "rev": "05e6ba83eb3585ce0aff7b41e4bd0e317d05ad4a",
         "type": "github"
       },
       "original": {
@@ -267,11 +268,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716455390,
-        "narHash": "sha256-HZockBczLQPFqZMpxi0Xv/vxeqamJrSveFIRIpkiGrs=",
+        "lastModified": 1716618639,
+        "narHash": "sha256-H3kcJDVqDmXZ9IfVtqObL3JUx/a0ERn6gWBTn+7vwN4=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "e3f0e189e5ab4a28c51f84d5a052a39423ccc838",
+        "rev": "a358c56a163b3b7d149571e853a8f75b2c1ceb38",
         "type": "github"
       },
       "original": {
@@ -293,16 +294,33 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1716518043,
-        "narHash": "sha256-JSRVAZdk1ZMWEmiqtVAUkDgs3/MbGQcbM1M/EJMsSSw=",
+        "lastModified": 1716690105,
+        "narHash": "sha256-M2C+BuLrKvtXuZbnijpISfPNIKxCbEESfuMf1mt18Tk=",
         "owner": "martinvonz",
         "repo": "jj",
-        "rev": "2e0dde81a626fda184e1846d98183bc1f95fd127",
+        "rev": "b31f75bc94c4552454ab929b54b9f37340231fac",
         "type": "github"
       },
       "original": {
         "owner": "martinvonz",
         "repo": "jj",
+        "type": "github"
+      }
+    },
+    "liburing": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716565485,
+        "narHash": "sha256-4R19aJNQYs6vb0/Hz4bWT56YN1P1DkFL/sxdE4Yj0CE=",
+        "owner": "axboe",
+        "repo": "liburing",
+        "rev": "b90c0e670a93caabbebe2d9e24ff85cece4cfe0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "axboe",
+        "ref": "master",
+        "repo": "liburing",
         "type": "github"
       }
     },
@@ -416,16 +434,16 @@
     "rocksdb": {
       "flake": false,
       "locked": {
-        "lastModified": 1714770052,
-        "narHash": "sha256-NCPYF2wYBsB9OHEkZSOYoPlxjC9BBMhJp8EM5M1o3Mc=",
+        "lastModified": 1716563894,
+        "narHash": "sha256-LT3RVOcIZmPWetkRfFKMi8dce0QgWvN0Sr7STD1hgxo=",
         "owner": "girlbossceo",
         "repo": "rocksdb",
-        "rev": "db6df0b185774778457dabfcbd822cb81760cade",
+        "rev": "7c0e7f7666678e3ad5c82485f9bfe405e92ff727",
         "type": "github"
       },
       "original": {
         "owner": "girlbossceo",
-        "ref": "v9.1.1",
+        "ref": "v9.2.1",
         "repo": "rocksdb",
         "type": "github"
       }

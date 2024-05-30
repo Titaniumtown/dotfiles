@@ -155,6 +155,7 @@
     # inputs.agenix.packages.${system}.default
 
     # chromium
+    system76-keyboard-configurator
   ];
   /*
   ++ [

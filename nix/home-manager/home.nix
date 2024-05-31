@@ -121,9 +121,6 @@
     #HTML/CSS/JSON/ESLint language servers
     vscode-langservers-extracted
 
-    #window manager
-    niri
-
     #manage bluetooth devices
     blueman
 
@@ -274,7 +271,6 @@
 
   #window manager
   programs.niri = {
-    package = pkgs.niri;
     settings = import ./progs/niri.nix {inherit config;};
   };
 
@@ -328,7 +324,7 @@
   #set what i use
   home.sessionVariables = {
     EDITOR = "hx";
-    BROWSER = "firefox";
+    BROWSER = "librewolf";
     TERMINAL = "alacritty";
   };
 

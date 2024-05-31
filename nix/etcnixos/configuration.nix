@@ -24,12 +24,9 @@
     optimise.automatic = true;
   };
 
-  #use scx_rustland scheduler
-  chaotic.scx.enable = true;
-
   #kernel options
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "mitigations=off"
 
@@ -146,6 +143,21 @@
     };
   };
 
+  services.greetd = {
+    enable = true;
+    package = pkgs.greetd.tuigreet;
+    settings = {
+      initial_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+        user = "primary";
+      };
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${pkgs.niri}/bin/niri-session";
+        user = "greeter";
+      };
+    };
+  };
+
   #drivers
   hardware.opengl.extraPackages = with pkgs; [
     mesa_drivers
@@ -242,8 +254,8 @@
     mullvad-vpn
     home-manager
 
-    # linuxPackages_cachyos-lto.perf
     distrobox
+    niri
   ];
 
   system.stateVersion = "24.11";

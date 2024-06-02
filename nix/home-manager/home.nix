@@ -153,6 +153,10 @@
 
     # chromium
     system76-keyboard-configurator
+
+    waypipe
+
+    sshfs
   ];
   /*
   ++ [
@@ -189,6 +193,14 @@
     };
   };
 
+  #common tools
+  home.sessionVariables = {
+    EDITOR = "hx";
+    BROWSER = "librewolf";
+    TERMINAL = "alacritty";
+  };
+
+  #bluetooth manager
   services.blueman-applet.enable = true;
 
   #dark mode
@@ -207,7 +219,6 @@
   #feed reader
   programs.newsboat = {
     enable = true;
-    browser = "firefox";
     #store rss feeds in a seperate file beacuse it's *a lot*
     urls = import ./progs/rss.nix;
   };
@@ -319,13 +330,6 @@
     package = pkgs.apple-cursor;
     name = "macOS-Monterey";
     size = 24;
-  };
-
-  #set what i use
-  home.sessionVariables = {
-    EDITOR = "hx";
-    BROWSER = "librewolf";
-    TERMINAL = "alacritty";
   };
 
   # Let Home Manager install and manage itself.

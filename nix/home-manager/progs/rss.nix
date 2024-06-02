@@ -25,11 +25,6 @@
   }
 
   {
-    title = "This Week in KDE";
-    url = "https://pointieststick.com/feed/";
-  }
-
-  {
     title = "Alyssa Rosenzweig";
     url = "https://rosenzweig.io/feed.xml";
   }
@@ -102,15 +97,5 @@
   {
     title = "lwn";
     url = "https://lwn.net/headlines/Features";
-  }
-
-  {
-    title = "biodigitaljazz";
-    url = "https://www.biodigitaljazz.net/rss.xml";
-  }
-
-  {
-    title = "FEX-Emu";
-    url = "https://fex-emu.com/feed.xml";
   }
 ]

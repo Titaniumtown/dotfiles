@@ -7,6 +7,7 @@ format_system:
     doas alejandra -q /etc/nixos
 
 system_update:
+    doas nix flake update /etc/nixos
     doas nixos-rebuild boot --upgrade-all
 
 home_update:

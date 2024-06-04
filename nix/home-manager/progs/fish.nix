@@ -3,6 +3,9 @@
 
   interactiveShellInit = ''
     #set fish_greeting # Disable greeting
+
+    #fixes gnupg password entry
+    set -Ux GPG_TTY (tty)
     pfetch
   '';
 

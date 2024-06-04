@@ -52,9 +52,6 @@
     #google java format my beloved
     google-java-format
 
-    #java 17 because last time we used a newer version, stuff for school broke
-    openjdk17
-
     #java lsp language server
     jdt-language-server
 
@@ -145,8 +142,6 @@
     prismlauncher
 
     pfetch-rs
-
-    powerstat
 
     mumble
     # inputs.agenix.packages.${system}.default

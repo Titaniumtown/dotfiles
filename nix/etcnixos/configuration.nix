@@ -30,6 +30,8 @@
     kernelParams = [
       "mitigations=off"
 
+      "quiet"
+
       # For Power consumption
       # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
       "mem_sleep_default=deep"

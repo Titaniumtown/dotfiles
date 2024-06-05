@@ -20,6 +20,16 @@
     ll = "eza -l --color=always --group-directories-first";
     lt = "eza -aT --color=always --group-directories-first";
 
+
+    # gets the largest files in a git repo's history
+    "git-size" = "git rev-list --objects --all |
+        git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |
+        sed -n 's/^blob //p' |
+        sort --numeric-sort --key=2 |
+        cut -c 1-12,41- |
+        numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest";
+
+
     #some rust alts
     cat = "bat";
     du = "dust";

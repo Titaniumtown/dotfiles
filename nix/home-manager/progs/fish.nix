@@ -30,7 +30,7 @@
 
     #some rust alts
     cat = "bat";
-    du = "dust";
+    # du = "dust";
     df = "duf";
     grep = "rg";
 

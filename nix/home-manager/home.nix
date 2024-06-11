@@ -10,6 +10,7 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
+    gtklock
     librewolf
 
     gnome.gnome-calculator #calculator
@@ -264,6 +265,11 @@
   fonts.fontconfig.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.swaylock = {
+    enable = true;
+    settings = import ./progs/swaylock.nix;
+  };
 
   #for trezor stuff
   /*

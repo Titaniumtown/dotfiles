@@ -24,13 +24,15 @@
     optimise.automatic = true;
   };
 
+  chaotic.scx.enable = true; # by default uses scx_rustland scheduler
+
   #kernel options
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
     kernelParams = [
-      "mitigations=off"
+      # "mitigations=off"
 
-      "quiet"
+      # "quiet"
 
       # For Power consumption
       # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
@@ -63,10 +65,10 @@
 
     enableContainers = false;
 
-    #use zstd level 22 for the initrd
+    #use zstd level 19 (highest without `--ultra`) for the initrd
     initrd = {
       compressor = "zstd";
-      compressorArgs = ["--ultra" "-22"];
+      compressorArgs = ["-19"];
     };
   };
 
@@ -141,21 +143,6 @@
       #Enable experimental features for battery % of bluetooth devices
       General = {
         Experimental = true;
-      };
-    };
-  };
-
-  services.greetd = {
-    enable = true;
-    package = pkgs.greetd.tuigreet;
-    settings = {
-      initial_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-        user = "primary";
-      };
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${pkgs.niri}/bin/niri-session";
-        user = "greeter";
       };
     };
   };
@@ -258,7 +245,12 @@
 
     distrobox
     niri
+    swaylock
   ];
+
+  #weird hack to get swaylock working? idk, if you don't put this here, password entry doesnt work
+  #if I move to another lock screen program, i will have to replace `swaylock`
+  security.pam.services.swaylock = {};
 
   system.stateVersion = "24.11";
 }

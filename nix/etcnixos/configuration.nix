@@ -24,11 +24,9 @@
     optimise.automatic = true;
   };
 
-  chaotic.scx.enable = true; # by default uses scx_rustland scheduler
-
   #kernel options
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       # "mitigations=off"
 

@@ -10,7 +10,6 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    gtklock
     librewolf
 
     gnome.gnome-calculator #calculator
@@ -153,26 +152,10 @@
     waypipe
 
     sshfs
+
+    mission-center
+    handbrake
   ];
-  /*
-  ++ [
-    (pkgs.python3.withPackages (python-pkgs: [
-      # python-pkgs.selenium
-      # python-pkgs.selenium-wire
-      python-pkgs.requests
-      python-pkgs.pandas
-      python-pkgs.numpy
-      python-pkgs.setuptools
-      python-pkgs.psutil
-      python-pkgs.blinker
-      python-pkgs.apprise
-      python-pkgs.pyyaml
-      python-pkgs.websockets
-      nur.repos.milahu.python3Packages.selenium-driverless
-      nur.repos.milahu.python3Packages.cdp-socket
-    ]))
-  ];
-  */
 
   programs.librewolf = {
     enable = true;

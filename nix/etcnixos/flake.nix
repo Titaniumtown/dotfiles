@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    chaotic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   nixConfig = {
@@ -18,7 +16,6 @@
   outputs = {
     self,
     nixpkgs,
-    chaotic,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -31,7 +28,6 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        chaotic.nixosModules.default
       ];
     };
   };

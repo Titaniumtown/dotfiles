@@ -53,6 +53,9 @@
       #for profiling
       "kernel.perf_event_paranoid" = 1;
       "kernel.kptr_restrict" = 0;
+
+      #dmesg shushhhhh
+      "kernel.printk" = "2 4 1 7";
     };
 
     # Bootloader.

@@ -32,7 +32,7 @@
     rust-analyzer
 
     #locallm inference
-    gpt4all
+    local-ai
 
     #video and audio downloading
     parabolic
@@ -155,6 +155,9 @@
 
     mission-center
     handbrake
+
+    josm
+    mpv
   ];
 
   programs.librewolf = {

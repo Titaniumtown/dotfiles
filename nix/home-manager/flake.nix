@@ -24,32 +24,37 @@
     ];
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    niri,
-    # agenix,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    username = "primary";
-    hostname = "mreow";
-  in {
-    homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {inherit inputs;};
-      modules = [
-        ./home.nix
-        niri.homeModules.config
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      niri,
+      # agenix,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      username = "primary";
+      hostname = "mreow";
+    in
+    {
+      homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./home.nix
+          niri.homeModules.config
 
-        {
-          home = {
-            inherit username;
-            homeDirectory = "/home/${username}";
-          };
-        }
-      ];
+          {
+            home = {
+              inherit username;
+              homeDirectory = "/home/${username}";
+            };
+          }
+        ];
+      };
     };
-  };
 }

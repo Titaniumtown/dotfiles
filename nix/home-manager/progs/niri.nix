@@ -1,16 +1,23 @@
-{config, ...}: {
+{ config, ... }:
+{
   prefer-no-csd = true;
 
   spawn-at-startup = [
     #waybar
-    {command = ["waybar"];}
+    { command = [ "waybar" ]; }
 
     #swaybg works on more than just sway (sets a wallpaper)
-    {command = ["swaybg" "-i" "/home/primary/.wallpaper.png"];}
+    {
+      command = [
+        "swaybg"
+        "-i"
+        "/home/primary/.wallpaper.png"
+      ];
+    }
   ];
 
   window-rules = [
-    {draw-border-with-background = false;}
+    { draw-border-with-background = false; }
     {
       geometry-corner-radius = {
         top-left = 10.0;
@@ -19,12 +26,16 @@
         bottom-left = 10.0;
       };
     }
-    {clip-to-geometry = true;}
+    { clip-to-geometry = true; }
   ];
 
   binds = with config.lib.niri.actions; {
     #application launcher
-    "Mod+Space".action = spawn ["rofi" "-show" "combi"];
+    "Mod+Space".action = spawn [
+      "rofi"
+      "-show"
+      "combi"
+    ];
 
     #open a terminal
     "Mod+T".action = spawn "alacritty";
@@ -38,14 +49,35 @@
     "Alt+Print".action = screenshot-window;
 
     #Volume control
-    "XF86AudioRaiseVolume".action = spawn ["volumectl" "-u" "up"];
-    "XF86AudioLowerVolume".action = spawn ["volumectl" "-u" "down"];
-    "XF86AudioMute".action = spawn ["volumectl" "toggle-mute"];
-    "XF86AudioMicMute".action = spawn ["volumectl" "-m" "toggle-mute"];
+    "XF86AudioRaiseVolume".action = spawn [
+      "volumectl"
+      "-u"
+      "up"
+    ];
+    "XF86AudioLowerVolume".action = spawn [
+      "volumectl"
+      "-u"
+      "down"
+    ];
+    "XF86AudioMute".action = spawn [
+      "volumectl"
+      "toggle-mute"
+    ];
+    "XF86AudioMicMute".action = spawn [
+      "volumectl"
+      "-m"
+      "toggle-mute"
+    ];
 
     #Display Brightness control
-    "XF86MonBrightnessUp".action = spawn ["lightctl" "up"];
-    "XF86MonBrightnessDown".action = spawn ["lightctl" "down"];
+    "XF86MonBrightnessUp".action = spawn [
+      "lightctl"
+      "up"
+    ];
+    "XF86MonBrightnessDown".action = spawn [
+      "lightctl"
+      "down"
+    ];
 
     #Force close a window
     "Mod+Q".action = close-window;
@@ -54,10 +86,10 @@
 
     #bindings for like window management ig
     /*
-    "Mod+Left".action = focus-column-left;
-    "Mod+Down".action = focus-window-down;
-    "Mod+Up".action = focus-window-up;
-    "Mod+Right".action = focus-column-right;
+      "Mod+Left".action = focus-column-left;
+      "Mod+Down".action = focus-window-down;
+      "Mod+Up".action = focus-window-up;
+      "Mod+Right".action = focus-column-right;
     */
     "Mod+H".action = focus-column-left;
     "Mod+J".action = focus-window-down;
@@ -65,10 +97,10 @@
     "Mod+L".action = focus-column-right;
 
     /*
-    "Mod+Ctrl+Left".action = move-column-left;
-    "Mod+Ctrl+Down".action = move-window-down;
-    "Mod+Ctrl+Up".action = move-window-up;
-    "Mod+Ctrl+Right".action = move-column-right;
+      "Mod+Ctrl+Left".action = move-column-left;
+      "Mod+Ctrl+Down".action = move-window-down;
+      "Mod+Ctrl+Up".action = move-window-up;
+      "Mod+Ctrl+Right".action = move-column-right;
     */
     "Mod+Ctrl+H".action = move-column-left;
     "Mod+Ctrl+J".action = move-window-down;
@@ -87,10 +119,10 @@
     "Mod+Ctrl+End".action = move-column-to-last;
 
     /*
-    "Mod+Shift+Left".action = focus-monitor-left;
-    "Mod+Shift+Down".action = focus-monitor-down;
-    "Mod+Shift+Up".action = focus-monitor-up;
-    "Mod+Shift+Right".action = focus-monitor-right;
+      "Mod+Shift+Left".action = focus-monitor-left;
+      "Mod+Shift+Down".action = focus-monitor-down;
+      "Mod+Shift+Up".action = focus-monitor-up;
+      "Mod+Shift+Right".action = focus-monitor-right;
     */
     "Mod+Shift+H".action = focus-monitor-left;
     "Mod+Shift+J".action = focus-monitor-down;
@@ -98,10 +130,10 @@
     "Mod+Shift+L".action = focus-monitor-right;
 
     /*
-    "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
-    "Mod+Shift+Ctrl+Down".action = move-column-to-monitor-down;
-    "Mod+Shift+Ctrl+Up".action = move-column-to-monitor-up;
-    "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
+      "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
+      "Mod+Shift+Ctrl+Down".action = move-column-to-monitor-down;
+      "Mod+Shift+Ctrl+Up".action = move-column-to-monitor-up;
+      "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
     */
     "Mod+Shift+Ctrl+H".action = move-column-to-monitor-left;
     "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;

@@ -4,7 +4,8 @@
   lib,
   username,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware.nix
     ./declarative-nm.nix
@@ -22,7 +23,10 @@
     optimise.automatic = true;
 
     #enable flakes!
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   #kernel options
@@ -68,7 +72,7 @@
     #use zstd level 19 (highest without `--ultra`) for the initrd
     initrd = {
       compressor = "zstd";
-      compressorArgs = ["-19"];
+      compressorArgs = [ "-19" ];
     };
   };
 
@@ -96,7 +100,7 @@
   #fwupd for updating firmware
   services.fwupd = {
     enable = true;
-    extraRemotes = ["lvfs-testing"];
+    extraRemotes = [ "lvfs-testing" ];
   };
 
   #lets use doas and not sudo!
@@ -105,7 +109,7 @@
   # Configure doas
   security.doas.extraRules = [
     {
-      users = ["${username}"];
+      users = [ "${username}" ];
       keepEnv = true;
       persist = true;
     }
@@ -118,7 +122,7 @@
   services.btrfs.autoScrub = {
     enable = true;
     interval = "weekly";
-    fileSystems = ["/"];
+    fileSystems = [ "/" ];
   };
   #Making sure mullvad works on boot
   services.mullvad-vpn.enable = true;
@@ -170,7 +174,7 @@
     vaapiVdpau
     libvdpau-va-gl
     intel-media-driver
-    intel-compute-runtime #compute stuff
+    intel-compute-runtime # compute stuff
   ];
 
   hardware.opengl = {
@@ -189,11 +193,11 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-  services.printing.drivers = with pkgs; [hplip];
+  services.printing.drivers = with pkgs; [ hplip ];
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false; #pipewire >>>>>>> pulseaudio
+  hardware.pulseaudio.enable = false; # pipewire >>>>>>> pulseaudio
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -204,11 +208,15 @@
     #jack.enable = true;
   };
 
-  nix.settings.trusted-users = ["${username}"];
+  nix.settings.trusted-users = [ "${username}" ];
   # Define my user account (the rest of the configuration if found in `~/.config/home-manager/...`)
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "video"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+    ];
   };
 
   # Enable thermal data
@@ -265,7 +273,7 @@
 
   #weird hack to get swaylock working? idk, if you don't put this here, password entry doesnt work
   #if I move to another lock screen program, i will have to replace `swaylock`
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   system.stateVersion = "24.11";
 }

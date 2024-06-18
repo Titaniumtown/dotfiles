@@ -6,14 +6,21 @@
       position = "top";
       spacing = 0;
       height = 45;
-      modules-left = [];
+      modules-left = [ ];
       #put the clock in the center
-      modules-center = ["clock"];
+      modules-center = [ "clock" ];
 
       #modules left->right on the top right of the screen
-      modules-right = ["tray" "backlight" "pulseaudio" "battery"];
+      modules-right = [
+        "tray"
+        "backlight"
+        "pulseaudio"
+        "battery"
+      ];
 
-      tray = {spacing = 16;};
+      tray = {
+        spacing = 16;
+      };
 
       #clock
       clock = {
@@ -31,7 +38,11 @@
         "format-muted" = "󰝟";
         "format-icons" = {
           "headphone" = "";
-          "default" = ["󰖀" "󰕾" ""];
+          "default" = [
+            "󰖀"
+            "󰕾"
+            ""
+          ];
         };
         "on-click" = "pavucontrol";
         "scroll-step" = 1;
@@ -41,8 +52,30 @@
       battery = {
         format = "{capacity}% {icon}";
         "format-icons" = {
-          "charging" = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
-          "default" = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          "charging" = [
+            "󰢜"
+            "󰂆"
+            "󰂇"
+            "󰂈"
+            "󰢝"
+            "󰂉"
+            "󰢞"
+            "󰂊"
+            "󰂋"
+            "󰂅"
+          ];
+          "default" = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
         };
         "format-full" = "󰁹 ";
         interval = 10;

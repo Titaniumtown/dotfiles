@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   home.username = "primary";
   home.homeDirectory = "/home/primary";
 
@@ -12,17 +13,17 @@
   home.packages = with pkgs; [
     librewolf
 
-    gnome.gnome-calculator #calculator
-    gnome-text-editor #text editor
-    gnome.nautilus #file manager
-    gnome.eog #image viewer
+    gnome.gnome-calculator # calculator
+    gnome-text-editor # text editor
+    gnome.nautilus # file manager
+    gnome.eog # image viewer
 
     helix
-    hexyl #hex viewer
+    hexyl # hex viewer
 
     #productivity stuff
     libreoffice
-    hunspell #auto correct
+    hunspell # auto correct
     hunspellDicts.en_US
 
     #rust stuff
@@ -66,7 +67,7 @@
     fira-code
     fira-code-symbols
     mplus-outline-fonts.githubRelease
-    nerdfonts #🤓
+    nerdfonts # 🤓
     jetbrains-mono
     meslo-lgs-nf
 
@@ -85,17 +86,17 @@
     #used for measuring compression ratios
     compsize
 
-    hyperfine #for benchmaking stuff
+    hyperfine # for benchmaking stuff
 
     #replacements for common posix tools
-    eza #ls replacement
-    bat #pretty `cat` clone
-    delta #viewer for `git` and `diff` output
-    dust #pretty `du` version
-    duf #better `df` clone
-    gping #`ping`... but with a graph!!
-    tldr #`man` but more straight-forward and simpler
-    ripgrep #grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
+    eza # ls replacement
+    bat # pretty `cat` clone
+    delta # viewer for `git` and `diff` output
+    dust # pretty `du` version
+    duf # better `df` clone
+    gping # `ping`... but with a graph!!
+    tldr # `man` but more straight-forward and simpler
+    ripgrep # grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
 
     #adds `sensors` command
     lm_sensors
@@ -107,13 +108,10 @@
     newsboat
     lynx
 
-    #nix style checker
-    alejandra
-
     #small nicities
-    wl-clipboard #clipboard utils in wayland (wl-copy and wl-paste)
-    libnotify #notifications library
-    xdg-utils #xdg utils
+    wl-clipboard # clipboard utils in wayland (wl-copy and wl-paste)
+    libnotify # notifications library
+    xdg-utils # xdg utils
 
     #HTML/CSS/JSON/ESLint language servers
     vscode-langservers-extracted
@@ -156,8 +154,13 @@
     mission-center
     handbrake
 
+    #openstreetmap editor
     josm
+
     mpv
+
+    #nix formatter 
+    nixfmt-rfc-style
   ];
 
   programs.librewolf = {
@@ -230,7 +233,7 @@
   };
 
   #fish shell!
-  programs.fish = import ./progs/fish.nix {inherit pkgs;};
+  programs.fish = import ./progs/fish.nix { inherit pkgs; };
 
   #rofi for application launcher
   programs.rofi = {
@@ -259,17 +262,17 @@
 
   #for trezor stuff
   /*
-  trezor-udev-rules #trezor udev rules
-  trezord
-  trezor-suite
-  monero-gui
-  monero-cli
-  trezorctl
+    trezor-udev-rules #trezor udev rules
+    trezord
+    trezor-suite
+    monero-gui
+    monero-cli
+    trezorctl
   */
 
   #window manager
   programs.niri = {
-    settings = import ./progs/niri.nix {inherit config;};
+    settings = import ./progs/niri.nix { inherit config; };
   };
 
   #Terminal emulator
@@ -287,7 +290,7 @@
   };
 
   #text editor
-  programs.helix = import ./progs/helix.nix {inherit pkgs;};
+  programs.helix = import ./progs/helix.nix { inherit pkgs; };
 
   #gtk application theming
   gtk = {

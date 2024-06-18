@@ -6,9 +6,9 @@
   ...
 }: {
   imports = [
+    #if this is removed, then niri doesn't start, TODO! look into wtf this does
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
   boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];

@@ -2,15 +2,13 @@
   config,
   pkgs,
   lib,
+  username,
   ...
 }: {
   imports = [
     ./hardware.nix
     ./declarative-nm.nix
   ];
-
-  #enable flakes!
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nix = {
     #garbage collection and cleanup stuff
@@ -22,6 +20,9 @@
 
     #optimize the store
     optimise.automatic = true;
+
+    #enable flakes!
+    settings.experimental-features = ["nix-command" "flakes"];
   };
 
   #kernel options
@@ -29,8 +30,6 @@
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       # "mitigations=off"
-
-      # "quiet"
 
       # For Power consumption
       # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
@@ -73,6 +72,22 @@
     };
   };
 
+  environment.etc = {
+    "issue" = {
+      text = "";
+    };
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.niri}/bin/niri-session";
+        user = "${username}";
+      };
+    };
+  };
+
   # auto mount usb drives i think (https://unix.stackexchange.com/questions/655158/automount-removable-media-using-udev-in-nixos)
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"
@@ -90,7 +105,7 @@
   # Configure doas
   security.doas.extraRules = [
     {
-      users = ["primary"];
+      users = ["${username}"];
       keepEnv = true;
       persist = true;
     }
@@ -189,9 +204,9 @@
     #jack.enable = true;
   };
 
-  nix.settings.trusted-users = ["primary"];
-  # Define my user account (the rest of the configuration if found in `./home.nix`)
-  users.users.primary = {
+  nix.settings.trusted-users = ["${username}"];
+  # Define my user account (the rest of the configuration if found in `~/.config/home-manager/...`)
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel" "video"];
   };
@@ -240,7 +255,6 @@
   environment.systemPackages = with pkgs; [
     libva-utils
 
-    #mullvad
     mullvad-vpn
     home-manager
 

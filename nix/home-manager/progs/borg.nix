@@ -15,6 +15,7 @@
         "/home/primary/justfile"
         "/home/primary/.local/share/fish"
         "/home/primary/.gnupg"
+        "/etc/secureboot"
       ];
       excludeHomeManagerSymlinks = true;
 

@@ -32,6 +32,11 @@
   #kernel options
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
     kernelParams = [
       # "mitigations=off"
 
@@ -63,7 +68,15 @@
 
     # Bootloader.
     loader = {
-      systemd-boot.enable = true;
+
+      /*
+        Lanzaboote currently replaces the systemd-boot module.
+        This setting is usually set to true in configuration.nix
+        generated at installation time. So we force it to false
+        for now.
+      */
+      systemd-boot.enable = lib.mkForce false;
+
       efi.canTouchEfiVariables = true;
     };
 
@@ -284,6 +297,9 @@
     distrobox
     niri
     swaylock
+
+    #secureboot ctl
+    sbctl
   ];
 
   #weird hack to get swaylock working? idk, if you don't put this here, password entry doesnt work

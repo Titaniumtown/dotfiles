@@ -3,6 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -14,7 +20,12 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      lanzaboote,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       username = "primary";
@@ -25,7 +36,10 @@
         specialArgs = {
           inherit inputs username;
         };
-        modules = [ ./configuration.nix ];
+        modules = [
+          ./configuration.nix
+          lanzaboote.nixosModules.lanzaboote
+        ];
       };
     };
 }

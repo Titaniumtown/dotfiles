@@ -12,7 +12,7 @@ system_update:
 
 home_update:
     nix flake update ~/.config/home-manager
-    home-manager switch
+    home-manager switch --impure
 
 sync_configs: format_home format_system
     rsync -a --delete /etc/nixos/ ~/dotfiles/nix/etcnixos/

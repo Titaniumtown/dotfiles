@@ -175,7 +175,26 @@
       "identity.fxaccounts.enabled" = true;
       "services.sync.prefs.sync.privacy.clearOnShutdown.cookies" = false;
       "services.sync.prefs.sync.privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+
+      "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+
+      # For themeing
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      "browser.tabs.drawInTitlebar" = true;
+      "svg.context-properties.content.enabled" = true;
     };
+    /*
+             userChrome = ''
+            @import "selected-theme/userChrome.css";
+            @import "selected-theme/theme/colors/dark.css";
+         '';
+    */
+  };
+
+  # Add Firefox GNOME theme directory
+  home.file."firefox-mod-blur" = {
+    target = ".librewolf/tckj7njq.default-release/chrome";
+    source = (fetchTarball "https://github.com/datguypiko/Firefox-Mod-Blur/archive/master.tar.gz");
   };
 
   #common tools

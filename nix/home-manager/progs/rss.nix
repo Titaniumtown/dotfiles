@@ -1,8 +1,4 @@
 [
-  {
-    title = "This Week in Gnome";
-    url = "https://thisweek.gnome.org/index.xml";
-  }
 
   {
     title = "Stratechery";
@@ -42,11 +38,6 @@
   {
     title = "Xuanwo's Blog";
     url = "https://xuanwo.io/index.xml";
-  }
-
-  {
-    title = "Julia Evans";
-    url = "https://jvns.ca/atom.xml";
   }
 
   {

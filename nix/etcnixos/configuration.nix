@@ -101,49 +101,64 @@
     TTYVTDisallocate = true;
   };
 
-  # auto mount usb drives i think (https://unix.stackexchange.com/questions/655158/automount-removable-media-using-udev-in-nixos)
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"
-  '';
+  services = {
 
-  #fwupd for updating firmware
-  services.fwupd = {
-    enable = true;
-    extraRemotes = [ "lvfs-testing" ];
+    # auto mount usb drives i think (https://unix.stackexchange.com/questions/655158/automount-removable-media-using-udev-in-nixos)
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"
+    '';
+
+    #fwupd for updating firmware
+    fwupd = {
+      enable = true;
+      extraRemotes = [ "lvfs-testing" ];
+    };
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
+
+    #auto detect network printers
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    printing.drivers = with pkgs; [ hplip ];
+
+    #disable fprintd (doesn't compile, idk)
+    fprintd.enable = false;
+
+    #using btrfs, so lets scrub!
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [ "/" ];
+    };
+
+    #Making sure mullvad works on boot
+    mullvad-vpn.enable = true;
+
+    # Set your time zone.
+    # time.timeZone = "America/New_York";
+    automatic-timezoned.enable = true;
   };
 
-  #lets use doas and not sudo!
-  security.doas.enable = true;
-  security.sudo.enable = false;
-  # Configure doas
-  security.doas.extraRules = [
-    {
-      users = [ "${username}" ];
-      keepEnv = true;
-      persist = true;
-    }
-  ];
-
-  #disable fprintd (doesn't compile, idk)
-  services.fprintd.enable = false;
-
-  #using btrfs, so lets scrub!
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
+  security = {
+    #lets use doas and not sudo!
+    doas.enable = true;
+    sudo.enable = false;
+    # Configure doas
+    doas.extraRules = [
+      {
+        users = [ "${username}" ];
+        keepEnv = true;
+        persist = true;
+      }
+    ];
   };
-  #Making sure mullvad works on boot
-  services.mullvad-vpn.enable = true;
-
-  # services.resolved.enable = false;
 
   #networking
   networking = import ./networking.nix;
-
-  # Set your time zone.
-  # time.timeZone = "America/New_York";
-  services.automatic-timezoned.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -192,16 +207,6 @@
 
   #apply gtk themes by enabling dconf
   programs.dconf.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  #auto detect network printers
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-  services.printing.drivers = with pkgs; [ hplip ];
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -259,8 +264,8 @@
   };
 
   # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
   virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
 
@@ -274,8 +279,6 @@
 
   #System packages
   environment.systemPackages = with pkgs; [
-    libva-utils
-
     mullvad-vpn
     home-manager
 

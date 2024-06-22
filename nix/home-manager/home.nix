@@ -144,7 +144,7 @@
     nixfmt-rfc-style
 
     #see https://github.com/NixOS/nixpkgs/pull/315139/files#r1649579015
-    xdg-user-dirs
+    # xdg-user-dirs
     inputs.finamp.legacyPackages.${pkgs.system}.finamp
   ];
 
@@ -171,6 +171,8 @@
       "identity.fxaccounts.enabled" = true;
       "services.sync.prefs.sync.privacy.clearOnShutdown.cookies" = false;
       "services.sync.prefs.sync.privacy.clearOnShutdown_v2.cookiesAndStorage" = false;
+
+      "general.useragent.override" = "Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0";
 
       "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 

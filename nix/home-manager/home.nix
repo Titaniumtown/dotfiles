@@ -10,164 +10,143 @@
 
   home.stateVersion = "24.11";
 
-  home.packages =
-    with pkgs;
-    [
-      librewolf
+  home.packages = with pkgs; [
+    librewolf
 
-      gnome.gnome-calculator # calculator
-      gnome.nautilus # file manager
-      gnome.eog # image viewer
+    gnome.gnome-calculator # calculator
+    gnome.nautilus # file manager
+    gnome.eog # image viewer
 
-      helix
-      hexyl # hex viewer
+    #text editor of choice
+    helix
 
-      #productivity stuff
-      libreoffice
-      hunspell # auto correct
-      hunspellDicts.en_US
+    #hex viewer
+    hexyl
 
-      #rust stuff
-      rustc
-      rustfmt
-      cargo
-      rust-analyzer
+    #productivity stuff
+    libreoffice
+    hunspell # auto correct
+    hunspellDicts.en_US
 
-      #video and audio downloading
-      parabolic
+    #rust stuff
+    rustc
+    rustfmt
+    cargo
+    rust-analyzer
 
-      #soulseek client
-      nicotine-plus
+    #video and audio downloading
+    parabolic
 
-      #for website generation
-      hugo
+    #soulseek client
+    nicotine-plus
 
-      #dark web browsing deep web browsing
-      tor-browser
+    #for website generation
+    hugo
 
-      #audio editing
-      audacity
+    #dark web browsing deep web browsing
+    tor-browser
 
-      #google java format my beloved
-      google-java-format
+    #audio editing
+    audacity
 
-      #java lsp language server
-      jdt-language-server
+    #google java format my beloved
+    google-java-format
 
-      #provides volumectl
-      avizo
+    #java lsp language server
+    jdt-language-server
 
-      #fonts
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      liberation_ttf
-      fira-code
-      fira-code-symbols
-      mplus-outline-fonts.githubRelease
-      nerdfonts # 🤓
-      jetbrains-mono
-      meslo-lgs-nf
+    #provides volumectl
+    avizo
 
-      #shell and common tools
-      nix-update
-      htop
-      bottom
+    #fonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    nerdfonts # 🤓
+    jetbrains-mono
+    meslo-lgs-nf
 
-      #misc cli utils
-      wget
-      unzip
+    #for benchmaking stuff
+    hyperfine
 
-      #compiling stuff
-      mold
+    #replacements for common posix tools
+    eza # ls replacement
+    bat # pretty `cat` clone
+    delta # viewer for `git` and `diff` output
+    dust # pretty `du` version
+    duf # better `df` clone
+    gping # `ping`... but with a graph!!
+    tldr # `man` but more straight-forward and simpler
+    ripgrep # grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
 
-      #used for measuring compression ratios
-      compsize
+    #adds `sensors` command
+    lm_sensors
 
-      hyperfine # for benchmaking stuff
+    #for ebook reading
+    foliate
 
-      #replacements for common posix tools
-      eza # ls replacement
-      bat # pretty `cat` clone
-      delta # viewer for `git` and `diff` output
-      dust # pretty `du` version
-      duf # better `df` clone
-      gping # `ping`... but with a graph!!
-      tldr # `man` but more straight-forward and simpler
-      ripgrep # grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
+    #rssfeed
+    newsboat
+    lynx
 
-      #adds `sensors` command
-      lm_sensors
+    #small nicities
+    wl-clipboard # clipboard utils in wayland (wl-copy and wl-paste)
+    libnotify # notifications library
+    xdg-utils # xdg utils
 
-      #for ebook reading
-      foliate
+    #HTML/CSS/JSON/ESLint language servers
+    vscode-langservers-extracted
 
-      #rssfeed
-      newsboat
-      lynx
+    #manage bluetooth devices
+    blueman
 
-      #small nicities
-      wl-clipboard # clipboard utils in wayland (wl-copy and wl-paste)
-      libnotify # notifications library
-      xdg-utils # xdg utils
+    #audio mixer
+    pwvucontrol
 
-      #HTML/CSS/JSON/ESLint language servers
-      vscode-langservers-extracted
+    #sets background, also works on niri :3
+    swaybg
 
-      #manage bluetooth devices
-      blueman
+    just
+    gamescope
 
-      intel-gpu-tools
-      killall
+    #minecraft
+    prismlauncher
 
-      gcc
-      gnumake
-      gparted
+    mpv
+    pfetch-rs
+    mumble
+    system76-keyboard-configurator
+    waypipe
+    sshfs
+    mission-center
+    handbrake
+    nix-update
+    htop
+    bottom
+    wget
+    unzip
+    mold
+    compsize
+    intel-gpu-tools
+    killall
+    gcc
+    gnumake
+    gparted
 
-      #audio mixer
-      pwvucontrol
+    #openstreetmap editor
+    josm
 
-      #sets background, also works on niri :3
-      swaybg
+    #nix formatter 
+    nixfmt-rfc-style
 
-      just
-
-      gamescope
-
-      #minecraft
-      prismlauncher
-
-      pfetch-rs
-
-      mumble
-      # inputs.agenix.packages.${system}.default
-
-      # chromium
-      system76-keyboard-configurator
-
-      waypipe
-
-      sshfs
-
-      mission-center
-      handbrake
-
-      #openstreetmap editor
-      josm
-
-      mpv
-
-      #nix formatter 
-      nixfmt-rfc-style
-
-      #see https://github.com/NixOS/nixpkgs/pull/315139/files#r1649579015
-      xdg-user-dirs
-
-    ]
-    ++ [
-
-      inputs.finamp.legacyPackages.${pkgs.system}.finamp
-    ];
+    #see https://github.com/NixOS/nixpkgs/pull/315139/files#r1649579015
+    xdg-user-dirs
+    inputs.finamp.legacyPackages.${pkgs.system}.finamp
+  ];
 
   services.swayidle = {
     enable = true;

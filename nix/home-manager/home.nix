@@ -125,7 +125,7 @@
       gparted
 
       #audio mixer
-      pavucontrol
+      pwvucontrol
 
       #sets background, also works on niri :3
       swaybg

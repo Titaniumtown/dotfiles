@@ -250,6 +250,11 @@
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 60;
+
+      CPU_BOOST_ON_BAT = 0;
+      START_CHARGE_THRESH_BAT0 = 90;
+      STOP_CHARGE_THRESH_BAT0 = 97;
+      RUNTIME_PM_ON_BAT = "auto";
     };
   };
 
@@ -277,8 +282,6 @@
     distrobox
     niri
     swaylock
-
-    doas-sudo-shim
 
     #secureboot ctl
     sbctl

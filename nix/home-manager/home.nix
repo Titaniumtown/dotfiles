@@ -10,158 +10,164 @@
 
   home.stateVersion = "24.11";
 
-  home.packages = with pkgs; [
-    librewolf
+  home.packages =
+    with pkgs;
+    [
+      librewolf
 
-    gnome.gnome-calculator # calculator
-    gnome-text-editor # text editor
-    gnome.nautilus # file manager
-    gnome.eog # image viewer
+      gnome.gnome-calculator # calculator
+      gnome.nautilus # file manager
+      gnome.eog # image viewer
 
-    helix
-    hexyl # hex viewer
+      helix
+      hexyl # hex viewer
 
-    #productivity stuff
-    libreoffice
-    hunspell # auto correct
-    hunspellDicts.en_US
+      #productivity stuff
+      libreoffice
+      hunspell # auto correct
+      hunspellDicts.en_US
 
-    #rust stuff
-    rustc
-    rustfmt
-    cargo
-    rust-analyzer
+      #rust stuff
+      rustc
+      rustfmt
+      cargo
+      rust-analyzer
 
-    #locallm inference
-    local-ai
+      #video and audio downloading
+      parabolic
 
-    #video and audio downloading
-    parabolic
+      #soulseek client
+      nicotine-plus
 
-    #soulseek client
-    nicotine-plus
+      #for website generation
+      hugo
 
-    #for website generation
-    hugo
+      #dark web browsing deep web browsing
+      tor-browser
 
-    #dark web browsing deep web browsing
-    tor-browser
+      #audio editing
+      audacity
 
-    #audio editing
-    audacity
+      #google java format my beloved
+      google-java-format
 
-    #google java format my beloved
-    google-java-format
+      #java lsp language server
+      jdt-language-server
 
-    #java lsp language server
-    jdt-language-server
+      #provides volumectl
+      avizo
 
-    #provides volumectl
-    avizo
+      #fonts
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      nerdfonts # 🤓
+      jetbrains-mono
+      meslo-lgs-nf
 
-    #fonts
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    nerdfonts # 🤓
-    jetbrains-mono
-    meslo-lgs-nf
+      #shell and common tools
+      nix-update
+      htop
+      bottom
 
-    #shell and common tools
-    nix-update
-    htop
-    bottom
+      #misc cli utils
+      wget
+      unzip
 
-    #misc cli utils
-    wget
-    unzip
+      #compiling stuff
+      mold
 
-    #compiling stuff
-    mold
+      #used for measuring compression ratios
+      compsize
 
-    #used for measuring compression ratios
-    compsize
+      hyperfine # for benchmaking stuff
 
-    hyperfine # for benchmaking stuff
+      #replacements for common posix tools
+      eza # ls replacement
+      bat # pretty `cat` clone
+      delta # viewer for `git` and `diff` output
+      dust # pretty `du` version
+      duf # better `df` clone
+      gping # `ping`... but with a graph!!
+      tldr # `man` but more straight-forward and simpler
+      ripgrep # grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
 
-    #replacements for common posix tools
-    eza # ls replacement
-    bat # pretty `cat` clone
-    delta # viewer for `git` and `diff` output
-    dust # pretty `du` version
-    duf # better `df` clone
-    gping # `ping`... but with a graph!!
-    tldr # `man` but more straight-forward and simpler
-    ripgrep # grep, but written in rust, respects .gitignore, and very very fast, command is `rg`
+      #adds `sensors` command
+      lm_sensors
 
-    #adds `sensors` command
-    lm_sensors
+      #for ebook reading
+      foliate
 
-    #for ebook reading
-    foliate
+      #rssfeed
+      newsboat
+      lynx
 
-    #rssfeed
-    newsboat
-    lynx
+      #small nicities
+      wl-clipboard # clipboard utils in wayland (wl-copy and wl-paste)
+      libnotify # notifications library
+      xdg-utils # xdg utils
 
-    #small nicities
-    wl-clipboard # clipboard utils in wayland (wl-copy and wl-paste)
-    libnotify # notifications library
-    xdg-utils # xdg utils
+      #HTML/CSS/JSON/ESLint language servers
+      vscode-langservers-extracted
 
-    #HTML/CSS/JSON/ESLint language servers
-    vscode-langservers-extracted
+      #manage bluetooth devices
+      blueman
 
-    #manage bluetooth devices
-    blueman
+      intel-gpu-tools
+      killall
 
-    intel-gpu-tools
-    killall
+      gcc
+      gnumake
+      gparted
 
-    gcc
-    gnumake
-    gparted
+      #audio mixer
+      pavucontrol
 
-    #audio mixer
-    pavucontrol
+      #sets background, also works on niri :3
+      swaybg
 
-    #sets background, also works on niri :3
-    swaybg
+      just
 
-    just
+      gamescope
 
-    gamescope
+      #minecraft
+      prismlauncher
 
-    #minecraft
-    prismlauncher
+      pfetch-rs
 
-    pfetch-rs
+      mumble
+      # inputs.agenix.packages.${system}.default
 
-    mumble
-    # inputs.agenix.packages.${system}.default
+      # chromium
+      system76-keyboard-configurator
 
-    # chromium
-    system76-keyboard-configurator
+      waypipe
 
-    waypipe
+      sshfs
 
-    sshfs
+      mission-center
+      handbrake
 
-    mission-center
-    handbrake
+      #openstreetmap editor
+      josm
 
-    #openstreetmap editor
-    josm
+      mpv
 
-    mpv
+      #nix formatter 
+      nixfmt-rfc-style
 
-    #nix formatter 
-    nixfmt-rfc-style
-  ];
+      #see https://github.com/NixOS/nixpkgs/pull/315139/files#r1649579015
+      xdg-user-dirs
+
+    ]
+    ++ [
+
+      inputs.finamp.legacyPackages.${pkgs.system}.finamp
+    ];
 
   services.swayidle = {
     enable = true;

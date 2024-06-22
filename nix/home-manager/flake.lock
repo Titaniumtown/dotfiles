@@ -98,6 +98,22 @@
         "type": "github"
       }
     },
+    "finamp": {
+      "locked": {
+        "lastModified": 1718549299,
+        "narHash": "sha256-aK8GWqrFXARjQix26ZbYLtQkh8isyrrLc5evcyyO0Bw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "fdd48158fa3ecaa4fdbaa6d838c12dc66201d479",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/315139/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -433,6 +449,7 @@
     },
     "root": {
       "inputs": {
+        "finamp": "finamp",
         "home-manager": "home-manager",
         "niri": "niri",
         "nixpkgs": "nixpkgs_3"

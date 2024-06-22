@@ -9,6 +9,8 @@
     niri.inputs.nixpkgs.follows = "nixpkgs";
     # agenix.url = "github:ryantm/agenix";
     # agenix.inputs.nixpkgs.follows = "nixpkgs";
+    finamp.url = "github:NixOS/nixpkgs/pull/315139/head";
+
   };
 
   nixConfig = {
@@ -30,6 +32,7 @@
       nixpkgs,
       home-manager,
       niri,
+      finamp,
       # agenix,
       ...
     }@inputs:

@@ -163,6 +163,17 @@
     nixfmt-rfc-style
   ];
 
+  services.swayidle = {
+    enable = true;
+    package = pkgs.swayidle;
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -fF";
+      }
+    ];
+  };
+
   programs.librewolf = {
     enable = true;
     settings = {
@@ -183,12 +194,6 @@
       "browser.tabs.drawInTitlebar" = true;
       "svg.context-properties.content.enabled" = true;
     };
-    /*
-             userChrome = ''
-            @import "selected-theme/userChrome.css";
-            @import "selected-theme/theme/colors/dark.css";
-         '';
-    */
   };
 
   # Add Firefox GNOME theme directory

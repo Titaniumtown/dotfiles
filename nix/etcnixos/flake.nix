@@ -9,6 +9,8 @@
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
   };
 
   nixConfig = {
@@ -24,6 +26,7 @@
       self,
       nixpkgs,
       lanzaboote,
+      nixos-hardware,
       ...
     }@inputs:
     let
@@ -39,6 +42,7 @@
         modules = [
           ./configuration.nix
           lanzaboote.nixosModules.lanzaboote
+          nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
       };
     };

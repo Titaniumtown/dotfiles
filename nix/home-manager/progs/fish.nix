@@ -30,12 +30,6 @@
               cut -c 1-12,41- |
               numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest'';
 
-    #some rust alts
-    cat = "bat";
-    # du = "dust";
-    df = "duf";
-    grep = "rg";
-
     #aliases for (I think) macos commands
     pbcopy = "wl-copy";
     pbpaste = "wl-paste";

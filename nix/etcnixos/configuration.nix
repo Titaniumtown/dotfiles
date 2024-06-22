@@ -37,25 +37,6 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-    kernelParams = [
-      # "mitigations=off"
-
-      # For Power consumption
-      # https://kvark.github.io/linux/framework/2021/10/17/framework-nixos.html
-      "mem_sleep_default=deep"
-      # Workaround iGPU hangs
-      # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
-      "i915.enable_psr=1"
-    ];
-
-    blacklistedKernelModules = [
-      # This enables the brightness and airplane mode keys to work
-      # https://community.frame.work/t/12th-gen-not-sending-xf86monbrightnessup-down/20605/11
-      "hid-sensor-hub"
-      # This fixes controller crashes during sleep
-      # https://community.frame.work/t/tracking-fn-key-stops-working-on-popos-after-a-while/21208/32
-      "cros_ec_lpcs"
-    ];
 
     kernel.sysctl = {
       #for profiling
@@ -195,19 +176,18 @@
     };
   };
 
-  #drivers
-  hardware.opengl.extraPackages = with pkgs; [
-    mesa_drivers
-    vaapiIntel
-    vaapiVdpau
-    libvdpau-va-gl
-    intel-media-driver
-    intel-compute-runtime # compute stuff
-  ];
-
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
+
+    extraPackages = with pkgs; [
+      mesa_drivers
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-media-driver
+      intel-compute-runtime # compute stuff
+      intel-media-sdk
+    ];
   };
 
   #apply gtk themes by enabling dconf
@@ -297,6 +277,8 @@
     distrobox
     niri
     swaylock
+
+    doas-sudo-shim
 
     #secureboot ctl
     sbctl

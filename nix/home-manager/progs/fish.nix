@@ -3,7 +3,7 @@
   enable = true;
 
   interactiveShellInit = ''
-    #set fish_greeting # Disable greeting
+    set fish_greeting # Disable greeting
 
     #fixes gnupg password entry
     export GPG_TTY=(tty)
@@ -38,12 +38,17 @@
   shellInit = ''
     fish_add_path ~/.local/bin
     fish_add_path ~/.cargo/bin
+    set hydro_color_pwd 62A
+    set hydro_color_error red
+    set hydro_color_duration yellow
+    set hydro_color_prompt green
+    set hydro_color_git blue
   '';
 
   plugins = [
     {
-      name = "pure";
-      src = pkgs.fishPlugins.pure.src;
+      name = "hydro";
+      src = pkgs.fishPlugins.hydro.src;
     }
   ];
 }

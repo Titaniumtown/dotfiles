@@ -102,7 +102,6 @@
   };
 
   services = {
-
     # auto mount usb drives i think (https://unix.stackexchange.com/questions/655158/automount-removable-media-using-udev-in-nixos)
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"

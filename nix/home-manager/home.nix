@@ -143,6 +143,8 @@
     #nix formatter 
     nixfmt-rfc-style
 
+    python3
+
     #see https://github.com/NixOS/nixpkgs/pull/315139/files#r1649579015
     # xdg-user-dirs
     inputs.finamp.legacyPackages.${pkgs.system}.finamp

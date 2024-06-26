@@ -277,11 +277,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1719232245,
-        "narHash": "sha256-QqD+axon+PVgRUqwAggvPAOod3p7281dDcn3R8k9qEo=",
+        "lastModified": 1719343012,
+        "narHash": "sha256-9IOPit9Px7LY7hTMusFtVuJROw1bZ/BZue5WG5Xwguk=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "41ba021ac7eb8b01bb3569b103d5a2a893d119fd",
+        "rev": "24b20e9be62be9c5c9bcab0576729009a70e61c2",
         "type": "github"
       },
       "original": {
@@ -399,11 +399,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1719075281,
-        "narHash": "sha256-CyyxvOwFf12I91PBWz43iGT1kjsf5oi6ax7CrvaMyAo=",
+        "lastModified": 1719254875,
+        "narHash": "sha256-ECni+IkwXjusHsm9Sexdtq8weAq/yUyt1TWIemXt3Ko=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a71e967ef3694799d0c418c98332f7ff4cc5f6af",
+        "rev": "2893f56de08021cffd9b6b6dfc70fd9ccd51eb60",
         "type": "github"
       },
       "original": {

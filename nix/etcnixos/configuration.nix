@@ -190,20 +190,6 @@
     };
   };
 
-  hardware.graphics = {
-    enable = true;
-
-    extraPackages = with pkgs; [
-      mesa_drivers
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-media-driver
-      intel-compute-runtime # compute stuff
-      intel-media-sdk
-    ];
-  };
-
   #apply gtk themes by enabling dconf
   programs.dconf.enable = true;
 
